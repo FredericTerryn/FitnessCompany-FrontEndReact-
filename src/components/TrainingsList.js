@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import Snackbar from '@material-ui/core/Snackbar';
+import moment from 'moment';
 
 class Trainingslist extends Component {
     
@@ -27,16 +28,19 @@ class Trainingslist extends Component {
 
     render() {
 
-    const columns = [{
+    const columns = [
+        {
+            Header: 'Activity',
+            accessor: 'activity'
+        },{
         Header: 'Date',
-        accessor: 'date'
+        accessor: 'date',
+        Cell:({value}) => (moment(value).format('MMMM Do YYYY, h:mm:ss a'))
     }, {
         Header: 'Duration',
-        accessor: 'duration'
-    }, {
-        Header: 'Activity',
-        accessor: 'activity'
-    }]
+        accessor: 'duration', 
+        Cell:({value}) => (value + " min.")
+    } ]
 
         return (
             <div>

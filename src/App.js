@@ -19,6 +19,11 @@ crossorigin="anonymous"/>
 
         </header>
         <Customerslist/>
+        <header className="App-header">
+         <h2>Trainings</h2>
+
+        </header>
+        <Trainingslist/>
       </div>
     );
   }

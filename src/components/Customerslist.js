@@ -5,6 +5,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import Popup from "reactjs-popup";
 import Modal from 'react-modal';
 import { Button } from 'react-bootstrap';
+import moment from 'moment';
 
 
 
@@ -15,6 +16,7 @@ class Customerslist extends Component {
         this.state = { customers: [] };
         this.state = { trainings: [] };  
         this.state = { emptylist: [] };
+        this.state = { dates: [] };
         this.state = { showSnack: false};
         this.state = { isOpen: false };
     }
@@ -27,6 +29,10 @@ class Customerslist extends Component {
         .then(responseData => {
             this.setState({ trainings: responseData.content });
         });
+    }
+
+    changeDate = (value) => {
+        this.setState({ dates : moment(value).format()}); 
     }
 
     toggleModal = event => {
@@ -47,11 +53,8 @@ class Customerslist extends Component {
             //    alert("no trainings");
             // }
         })
-        
         this.setState({isOpen: true});
     }
-
-
 
     handleClose = (event, reason) => {
         this.setState({showSnack:false});
@@ -73,7 +76,6 @@ class Customerslist extends Component {
             this.setState({ customers: responseData.content });
         });
     }
-
 
     render() {
         const columns = [{
@@ -111,7 +113,8 @@ class Customerslist extends Component {
     
     const columns2 = [{
         Header: 'Date',
-        accessor: 'date'
+        accessor: 'date', 
+        Cell:({value}) => ((!value) ? 'No trainings yet for this customer' : moment(value).format('MMMM Do YYYY, h:mm:ss a'))
     }, {
         Header: 'Duration',
         accessor: 'duration'
