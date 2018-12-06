@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './../App.js';
 import SkyLight from 'react-skylight';
 import moment from 'moment';
+import { Button } from 'react-bootstrap';
 
 
 class AddTraining extends Component {
@@ -29,7 +30,7 @@ class AddTraining extends Component {
         return (
             <div>
                <SkyLight hideOnOverlayClicked ref="addDialog">
-          <h3>New car</h3>
+          <h3>New training</h3>
           <form>
             <input type="text" placeholder="Activity" name="activity" 
               onChange={this.handleChange}/><br/> 
@@ -42,8 +43,8 @@ class AddTraining extends Component {
           </form> 
           </SkyLight>
         <div>
-            <button style={{'margin': '10px'}} 
-              onClick={() => this.refs.addDialog.show()}>New Training</button>
+            <Button style={{'margin': '10px'}} 
+              onClick={() => this.refs.addDialog.show()}>New Training</Button>
         </div>
       </div> 
     );

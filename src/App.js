@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Customerslist from './components/Customerslist';
 import Trainingslist from './components/TrainingsList';
+import TrainingCalendar from './components/TrainingCalendar.js';
 
 
 
@@ -23,6 +24,10 @@ class App extends Component {
           <h2>Trainings</h2>
         </header>
         <Trainingslist />
+        <header className="App-header">
+          <h2>Calendar</h2>
+        </header>
+        <TrainingCalendar />
       </div>
     );
   }

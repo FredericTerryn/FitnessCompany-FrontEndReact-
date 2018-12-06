@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './../App.js';
 import SkyLight from 'react-skylight';
+import { Button } from 'react-bootstrap';
 
 class AddCustomer extends Component {
 
@@ -77,8 +78,8 @@ class AddCustomer extends Component {
                     </form>
                 </SkyLight>
                 <div>
-                    <button style={{ 'margin': '10px' }}
-                        onClick={() => this.refs.addDialog.show()}>New Customer</button>
+                    <Button style={{ 'margin': '10px' }}
+                        onClick={() => this.refs.addDialog.show()}>New Customer</Button>
                 </div>
             </div>
         );
